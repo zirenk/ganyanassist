@@ -17,7 +17,8 @@ Gerçek veriye dayalı, bahisçinin risk algısına göre matematiksel sigorta (
 4. ✅ **Dosya Temizliği:** Gereksiz dokümantasyon silindi (PROJECT_CONTEXT.md, AGENT_INSTRUCTIONS.md)
 5. ✅ **Versiyon Güncelleme:** v0.0.1 → v0.0.2
 
-**Deploy:** Firebase Hosting (Devam ediyor...)
+**Deploy:** ✅ Firebase Hosting - https://ganyanassist.web.app
+**Git Commit:** 304e33b - Pushed to GitHub main branch
 
 ## MEVCUT DURUM: FAZ 1'E HAZIR
 
