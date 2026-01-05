@@ -1,31 +1,35 @@
 # PROJECT_PLAN.md
 
-## HRAI v1 - Horse Racing Analytics Intelligence
-**Vizyon:** Gerçek veriye dayalı, halüsinasyon görmeyen, bahisçinin kendi risk algısına göre matematiksel sigorta (hedge) önerileri sunan finansal analiz platformu.
+## VİZYON
+Gerçek veriye dayalı, bahisçinin risk algısına göre matematiksel sigorta (hedge) önerileri sunan analiz platformu.
 
-## FAZ 0: Altyapı ve Güvenli Boru Hattı (ŞU AN BURADAYIZ)
-* **Amaç:** React, Firebase ve Deploy hattını kurmak. Versiyon takibini otomatize etmek.
-* **Çıktı:** Ekranda "v0.0.1 - System Online" yazan, Kırmızı/Mavi/Gri temalı, Dark mode destekli, Mobil uyumlu boş bir ana sayfa.
-* **Test:** Firebase Hosting'e deploy edilecek. Tarayıcıda versiyon numarası görülecek.
+## ✅ TAMAMLANDI: FAZ 0.5 - STABİLİZASYON (BUGFIX) - v0.0.2
+**Tamamlanma Tarihi:** 2026-01-05
 
-## FAZ 1: Veri Yönetimi (Admin & OCR)
-* **Amaç:** Yarış günlerini oluşturmak ve SS (Screenshot) yükleyip Gemini Vision ile okutmak.
-* **Çıktı:** Admin Paneli -> Yarış Ekle -> Resim Yükle -> Veriyi Onayla -> DB'ye Kaydet.
-* **Test:** Gerçek bir TJK bülten resmi yüklenecek, OCR çıktısı ile resim yan yana teyit edilecek.
+### Çözülen Sorunlar:
+1. ✅ **Dark Mode Fix:** Tailwind v4'te `@variant dark` directive eklendi ([src/index.css:3](../src/index.css#L3))
+   - Light/Dark mode toggle artık görsel olarak çalışıyor
+   - localStorage ile kalıcı hale getirildi
+2. ✅ **Renk Paleti:** Kırmızı (#dc2626) ve Mavi (#2563eb) HEX kodları doğrulandı
+   - Logo gradient, ikonlar, hover efektleri marka kimliğine uygun
+   - `@theme` ile özel renkler tanımlandı
+3. ✅ **Vite Port Sabitleme:** Port 5173'te sabitlendi ([vite.config.ts:7-9](../vite.config.ts#L7-L9))
+4. ✅ **Dosya Temizliği:** Gereksiz dokümantasyon silindi (PROJECT_CONTEXT.md, AGENT_INSTRUCTIONS.md)
+5. ✅ **Versiyon Güncelleme:** v0.0.1 → v0.0.2
 
-## FAZ 2: Matematik Motoru (BahisAssist Çekirdeği)
-* **Amaç:** Kullanıcının razı olduğu oranları girmesi ve "Akıllı Sigorta" hesaplaması.
-* **Mantık:**
-    1.  `Hedef Kazanç` = `Bütçe` * `Razı Olunan Oran`
-    2.  `Ana Bahis Tutarı` = `Hedef Kazanç` / `Piyasa Ganyan Oranı`
-    3.  `Sigorta Bütçesi` = `Bütçe` - `Ana Bahis Tutarı`
-    4.  **Dağıtım:** Kalan sigorta bütçesi ile en az maliyetli "İkili" veya "Sıralı İkili" kombinasyonunu bul.
-* **Çıktı:** BahisAssist Modülü (Simülatör Ekranı).
+**Deploy:** Firebase Hosting (Devam ediyor...)
 
-## FAZ 3: Raporlama ve Analiz
-* **Amaç:** Profesyonellerin Konsensüs Puanı ve Grafiksel Gösterim.
-* **Çıktı:** Çubuk Grafikler (Mavi: Havuz, Turuncu: Sabit, Yeşil: AGF, Kırmızı: Yorumcu).
+## MEVCUT DURUM: FAZ 1'E HAZIR
 
----
-**DEPLOYMENT KURALI:**
-Her deploy işleminde `public/version.json` güncellenecek ve UI üzerinde versiyon numarası gösterilecek.
+## SIRADAKİ ADIMLAR
+### FAZ 1: Veri Yönetimi (Admin & OCR)
+* Admin Paneli: Yarış Günü ve Koşu ekleme.
+* OCR Entegrasyonu: SS yükleme, Gemini ile veri çıkarma ve "Split-Screen" onay ekranı.
+* DB Bağlantısı: Firebase Data Connect (PostgreSQL) şemasının ayağa kaldırılması.
+
+### FAZ 2: Matematik Motoru (BahisAssist)
+* "Razı Olunan Oran" üzerinden Sigorta Bütçesi hesaplama.
+* Arbitraj kovalayan (En ucuz sigortayı bulan) maliyet optimizasyonu.
+
+### FAZ 3: Profesyonel Konsensüs
+* Yorumcu puanlama ve Power Law tabanlı olasılık grafikleri.

@@ -61,9 +61,9 @@ export const Landing = () => {
 
         {/* Status Badge */}
         <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-green-100 dark:bg-green-900/30 border border-green-500 rounded-full">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            <span className="text-sm font-semibold text-green-700 dark:text-green-400">
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-primary-50 dark:bg-primary-900/30 border-2 border-primary rounded-full">
+            <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+            <span className="text-sm font-semibold text-primary-700 dark:text-primary-400">
               FAZ 0: Altyapı Hazır
             </span>
           </div>

@@ -33,13 +33,13 @@ export const Header = ({ isDark, toggleDarkMode, version }: HeaderProps) => {
             </span>
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
+              className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:bg-secondary-100 hover:border-secondary dark:hover:bg-secondary-900/30 transition-colors border border-transparent"
               aria-label="Toggle dark mode"
             >
               {isDark ? (
                 <Sun className="w-5 h-5 text-yellow-500" />
               ) : (
-                <Moon className="w-5 h-5 text-zinc-700" />
+                <Moon className="w-5 h-5 text-secondary" />
               )}
             </button>
           </div>
