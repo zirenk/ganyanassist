@@ -1,0 +1,46 @@
+# Mutation operations for GanyanAssist
+
+mutation CreateHipodrom($name: String!, $code: String!, $city: String, $country: String) @auth(level: PUBLIC) {
+  hipodrom_insert(data: {
+    name: $name
+    code: $code
+    city: $city
+    country: $country
+  })
+}
+
+mutation UpdateHipodrom($id: UUID!, $name: String, $code: String, $city: String, $country: String, $isActive: Boolean) @auth(level: PUBLIC) {
+  hipodrom_update(id: $id, data: {
+    name: $name
+    code: $code
+    city: $city
+    country: $country
+    isActive: $isActive
+  })
+}
+
+mutation CreateRaceDay($date: Date!, $hipodromId: UUID!, $notes: String) @auth(level: PUBLIC) {
+  raceDay_insert(data: {
+    date: $date
+    hipodromId: $hipodromId
+    notes: $notes
+    status: "PLANNED"
+  })
+}
+
+mutation UpdateRaceDay($id: UUID!, $date: Date, $hipodromId: UUID, $status: String, $notes: String) @auth(level: PUBLIC) {
+  raceDay_update(id: $id, data: {
+    date: $date
+    hipodromId: $hipodromId
+    status: $status
+    notes: $notes
+  })
+}
+
+mutation DeleteHipodrom($id: UUID!) @auth(level: PUBLIC) {
+  hipodrom_delete(id: $id)
+}
+
+mutation DeleteRaceDay($id: UUID!) @auth(level: PUBLIC) {
+  raceDay_delete(id: $id)
+}

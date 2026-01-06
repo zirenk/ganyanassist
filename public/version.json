@@ -1,5 +1,5 @@
 {
-  "version": "0.0.2",
-  "buildDate": "2026-01-05",
-  "phase": "FAZ 0.5: Bugfix (Dark Mode + Renk Paleti)"
+  "version": "0.0.5",
+  "buildDate": "2026-01-06",
+  "phase": "FAZ 1.1: Tam CRUD Implementasyonu (Create, Read, Update, Delete)"
 }

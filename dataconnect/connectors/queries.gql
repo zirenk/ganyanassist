@@ -1,0 +1,50 @@
+# Query operations for GanyanAssist
+
+query ListHipodroms @auth(level: PUBLIC) {
+  hipodroms(
+    where: { isActive: { eq: true } }
+    orderBy: { name: ASC }
+  ) {
+    id
+    name
+    code
+    city
+    country
+    isActive
+  }
+}
+
+query GetHipodrom($id: UUID!) @auth(level: PUBLIC) {
+  hipodrom(id: $id) {
+    id
+    name
+    code
+    city
+    country
+    isActive
+    createdAt
+  }
+}
+
+query ListRaceDays @auth(level: PUBLIC) {
+  raceDays(orderBy: { date: DESC }) {
+    id
+    date
+    hipodromId
+    status
+    notes
+    createdAt
+  }
+}
+
+query GetRaceDay($id: UUID!) @auth(level: PUBLIC) {
+  raceDay(id: $id) {
+    id
+    date
+    hipodromId
+    status
+    notes
+    createdAt
+    updatedAt
+  }
+}

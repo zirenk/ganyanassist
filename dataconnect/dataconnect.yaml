@@ -1,0 +1,16 @@
+# Firebase Data Connect Configuration
+specVersion: "v1alpha"
+serviceId: "ganyanassist-service"
+
+location: "europe-west9"
+
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "ganyanassist"
+      cloudSql:
+        instanceId: "ganyanassist-instance"
+
+connectorDirs:
+  - "./connectors"

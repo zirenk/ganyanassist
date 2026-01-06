@@ -1,0 +1,73 @@
+# GanyanAssist Database Schema
+# Firebase Data Connect - PostgreSQL Backend
+
+type Hipodrom @table {
+  id: UUID! @default(expr: "uuidV4()")
+  name: String!
+  code: String!
+  city: String
+  country: String! @default(value: "Türkiye")
+  isActive: Boolean! @default(value: true)
+  createdAt: Timestamp! @default(expr: "request.time")
+}
+
+type RaceDay @table {
+  id: UUID! @default(expr: "uuidV4()")
+  date: Date!
+  hipodromId: UUID!
+  status: String! @default(value: "PLANNED")
+  notes: String
+  createdAt: Timestamp! @default(expr: "request.time")
+  updatedAt: Timestamp! @default(expr: "request.time")
+}
+
+type Race @table {
+  id: UUID! @default(expr: "uuidV4()")
+  raceDayId: UUID!
+  raceNumber: Int!
+  distance: Int
+  trackCondition: String
+  status: String! @default(value: "UPCOMING")
+  scheduledTime: Timestamp
+  actualStartTime: Timestamp
+  createdAt: Timestamp! @default(expr: "request.time")
+  updatedAt: Timestamp! @default(expr: "request.time")
+}
+
+type Horse @table {
+  id: UUID! @default(expr: "uuidV4()")
+  raceId: UUID!
+  programNumber: Int!
+  name: String!
+  jockey: String
+  trainer: String
+  weight: Float
+  age: Int
+  isScratched: Boolean! @default(value: false)
+  scratchedReason: String
+  finalPosition: Int
+  createdAt: Timestamp! @default(expr: "request.time")
+}
+
+type OddsSnapshot @table {
+  id: UUID! @default(expr: "uuidV4()")
+  raceId: UUID!
+  type: String!
+  capturedAt: Timestamp! @default(expr: "request.time")
+  imageUrl: String
+  source: String! @default(value: "OCR")
+  isVerified: Boolean! @default(value: false)
+  verifiedBy: String
+  createdAt: Timestamp! @default(expr: "request.time")
+}
+
+type OddsEntry @table {
+  id: UUID! @default(expr: "uuidV4()")
+  snapshotId: UUID!
+  horseId: UUID!
+  ganyan: Float
+  ikili: Float
+  siraliIkili: Float
+  agfPercent: Float
+  createdAt: Timestamp! @default(expr: "request.time")
+}
