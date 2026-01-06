@@ -154,6 +154,7 @@ Gerçek veriye dayalı, bahisçinin risk algısına göre matematiksel sigorta (
 **Deploy Durumu:** ✅ PRODUCTION - TAM CRUD ÇALIŞIR DURUMDA
 **Live URL:** https://ganyanassist.web.app
 **Versiyon:** v0.0.5
+**Git Commit:** a9b94c7 - Pushed to GitHub main branch
 
 ## MEVCUT DURUM: FAZ 1.2'YE HAZIR (Yarış/Koşu Yönetimi)
 
